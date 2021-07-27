@@ -39,7 +39,7 @@ const Home = (): JSX.Element => {
       try {
         const response = await api.get<Product[]>('http://localhost:3333/products')
         
-        setProducts([...response.data.map((item) => ({...item, priceFormatted: formatPrice(item.price)}))])
+        setProducts([...response.data.map((product: Product) => ({...product, priceFormatted: formatPrice(product.price)}))])
 
       } catch (e) {
         console.log(e)
